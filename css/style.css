@@ -29,12 +29,13 @@ body{
   color: #000000;
   font-size: 16px;
   margin: 1.2em;
-  background-size: cover ;
+  background-size: cover;
   background-position: center;
   
   /*Req 1*/
-  background-image: url("/images/pigeon-background.jpeg");
   background-color: #DDDDDD;
+  background-image: url("../images/pigeon-background.jpeg");
+  background-repeat: no-repeat;
 }
 
 h1{
@@ -55,8 +56,7 @@ a{
   /*Req 4*/
   font-size: 16px;
   color: rgb(178, 31, 80);
-  text-decoration: underline;
-  text-decoration-style: wavy;
+  text-decoration: underline wavy;
 }
 
 /*Req 5*/
@@ -67,7 +67,7 @@ a{
 
 
 /*Req 6a*/
-td{
+td {
  text-align: center;
  border-top: 2px black solid; 
  padding: 10px;
@@ -78,8 +78,8 @@ td{
   color: #FFFFFF;
   min-width: 125px;
   padding: 10px;
-  vertical-align: center;
-  margin: auto 0;
+  text-align: center;
+  vertical-align: middle;
   background-color: rgb(126, 8, 32);
   text-transform: uppercase;
 }
@@ -88,6 +88,9 @@ td{
 .rowhead{
   border-top: 2px black solid;
   border-right: 2px black solid;
+  /* not in the spec, but was needed to match the screenshot */
+  text-align: center;
+  vertical-align: middle;
 }
 
 /*Req 6d*/
@@ -106,6 +109,8 @@ tr:hover {
 
 /*Req 7*/
 table{
+    /* dont get this border collapse (Piazza said it needed it) */
+    border-collapse: separate;
     border: 2px solid #000000;
     margin-right: auto;
     margin-left: auto;
@@ -114,15 +119,25 @@ table{
 
 
 thead tr:first-child th:first-child{
-  border-top-left-radius: 8px;
+  border-top-left-radius: 10px;
 }
 
 thead tr:last-child th:last-child{
-  border-top-right-radius: 8px;
+  border-top-right-radius: 10px;
+  /* border-bottom-right-radius: 10px; */
+}
+
+tbody tr:last-child th:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+tbody tr:last-child th:last-child {
+  border-bottom-right-radius: 10px;
 }
 
 
 /*Add selectors and rules here*/
+
 
 
 /*Req 8*/
@@ -132,7 +147,7 @@ footer{
   text-align:center;
   color: #FFFFFF;
   min-height: 75px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
